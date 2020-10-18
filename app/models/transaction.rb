@@ -3,8 +3,9 @@ class Transaction < ApplicationRecord
   belongs_to :type_transaction
   belongs_to :store
   validates_associated :type_transaction, :store
-  attr_reader :value, :type_transaction
-  attr_writer :type_transaction
+  validates_cpf :cpf
+  validates_date :date_transaction, on_or_before: lambda { Date.current }
+  validates :abs_value, :card, :date_transaction, presence: true
   after_save :add_transaction_in_store
   after_destroy :remove_transaction_in_store
 
@@ -26,7 +27,7 @@ class Transaction < ApplicationRecord
         date_transaction: date_transaction
         )
 
-    transaction
+    transaction.value
   end
 
   def value

@@ -1,5 +1,4 @@
 class ApplicationRecord < ActiveRecord::Base
-  private_class_method :new, :create
-  private_methods :save
+  protected_methods true
   self.abstract_class = true
 end

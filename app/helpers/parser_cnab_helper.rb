@@ -1,4 +1,4 @@
-class ParserCnabHelper
+module ParserCnabHelper
   def self.parser_line_cnab_to_hash(line)
     type =  line[0, 1]
     date = line[1, 8]

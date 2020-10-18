@@ -35,6 +35,10 @@ gem 'pg'
 gem 'rspec'
 gem 'rake'
 
+gem 'validates_cpf_cnpj'
+
+gem 'validates_timeliness'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
