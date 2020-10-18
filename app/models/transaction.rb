@@ -8,6 +8,8 @@ class Transaction < ApplicationRecord
   validates :abs_value, :card, :date_transaction, presence: true
   after_save :add_transaction_in_store
   after_destroy :remove_transaction_in_store
+  attr_reader :type_transaction
+  attr_writer :type_transaction
 
   def self.convert_hash_to_object(hash)
     type_transaction = TypeTransaction.convert_hash_to_object(hash)

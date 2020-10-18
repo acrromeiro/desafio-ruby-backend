@@ -20,6 +20,13 @@ class Store < ApplicationRecord
     self.save
   end
 
+  def get_store_all_info_transactions
+    Store.find_by_sql(["SELECT transactions.*,type_transactions.*,transactions.id FROM stores store
+                      INNER JOIN transactions ON store.id = transactions.store_id
+                      INNER JOIN type_transactions ON type_transactions.id = transactions.type_transaction_id
+                      WHERE store.id = ?",self.id])
+  end
+
 
 end
 
