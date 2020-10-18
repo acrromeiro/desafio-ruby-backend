@@ -3,7 +3,11 @@ class ImportsController < ApplicationController
 
   # @return [nil]
   def create
-    ImportCnabFileService.import(params[:file])
-    render json: @resource, status: :created
+    begin
+      ImportCnabFileService.import(params[:file])
+      render json: {status: :created}
+    rescue
+      render json: {status: :not_acceptable}
+    end
   end
 end

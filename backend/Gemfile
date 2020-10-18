@@ -31,8 +31,10 @@ gem 'yarn', '~> 0.1.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'pg'
+gem 'rack-cors'
 
 gem 'rspec'
+
 gem 'rake'
 
 gem 'validates_cpf_cnpj'
