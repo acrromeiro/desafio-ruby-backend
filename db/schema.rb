@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_18_005656) do
+ActiveRecord::Schema.define(version: 2020_10_18_042431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,16 +18,17 @@ ActiveRecord::Schema.define(version: 2020_10_18_005656) do
   create_table "stores", force: :cascade do |t|
     t.string "name"
     t.string "owner"
+    t.float "total", default: 0.0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_stores_on_name", unique: true
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.float "value", null: false
+    t.float "abs_value", null: false
     t.string "cpf", null: false
     t.string "card", null: false
-    t.datetime "transaction_date", null: false
+    t.datetime "date_transaction", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "store_id"
@@ -37,10 +38,12 @@ ActiveRecord::Schema.define(version: 2020_10_18_005656) do
   end
 
   create_table "type_transactions", force: :cascade do |t|
+    t.integer "external_id"
     t.string "description"
     t.string "order", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["external_id"], name: "index_type_transactions_on_external_id", unique: true
   end
 
   add_foreign_key "transactions", "stores"
