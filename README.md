@@ -1,3 +1,37 @@
+# Destafio Ruby - Augusto Romeiro
+
+## Considerações
+    Neste desafio os principais pontos de atenção foram:
+     - Resolver o Problema de N+1, com as Classes de Modelo Store, Transaction e Type TRansaction
+     - Colocar o campo Total no Banco de dados, para não calcular de forma agregada. Caso a quantidade de Transactions aumentasse muito ficaria muito ineficiente.
+     - Usar os conceitos de DDD para encapsular a lógica de negôcio no Dominio, evitando que possas ocorrer uma incongruência dos dados,  principalmente o campo Store.total
+     - Caso o sistema fosse ser atualizado, eu coloquei alguns métodos do ActiveRecord como privados. Não adiantaria de início a lógica estar encapsulado, mas deixando ser possível passar por cima da lógica.
+     - Utilizei um modelo dado de exemplo do Vue.js e fiz alterações básicas.
+
+### Requisitos
+
+- docker-compose
+
+### Como colocar para rodar
+
+```
+-- Rode esses 2 comandos no terminal
+  docker-compose build  
+  docker-compose up -d
+```
+
+Ao terminar basta acessar o endereço no browser http://localhost:8080/.
+
+### Para rodar os testas
+
+```
+-- Rode este comando no terminal, certifique-se que o contaider está "startado"
+  docker-compose run rails bundle exec rspec
+```
+
+
+# Abaixo as instruções enviadas
+
 # Desafio programação - para vaga Back-end
 
 Por favor leiam este documento do começo ao fim, com muita atenção.
