@@ -74,6 +74,7 @@ GEM
     childprocess (3.0.0)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
+    database_cleaner (1.8.5)
     diff-lcs (1.4.4)
     erubi (1.9.0)
     ffi (1.13.1)
@@ -157,6 +158,14 @@ GEM
     rspec-mocks (3.9.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
+    rspec-rails (3.9.1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
+      rspec-support (~> 3.9.0)
     rspec-support (3.9.3)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
@@ -229,6 +238,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  database_cleaner
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg
@@ -237,6 +247,7 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.4)
   rake
   rspec
+  rspec-rails
   sass-rails (>= 6)
   selenium-webdriver
   spring

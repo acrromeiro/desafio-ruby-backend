@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_10_18_042431) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "stores", force: :cascade do |t|
     t.string "name"
     t.string "owner"
@@ -31,8 +28,8 @@ ActiveRecord::Schema.define(version: 2020_10_18_042431) do
     t.datetime "date_transaction", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "store_id"
-    t.bigint "type_transaction_id"
+    t.integer "store_id"
+    t.integer "type_transaction_id"
     t.index ["store_id"], name: "index_transactions_on_store_id"
     t.index ["type_transaction_id"], name: "index_transactions_on_type_transaction_id"
   end
