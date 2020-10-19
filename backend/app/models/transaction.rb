@@ -6,7 +6,6 @@ class Transaction < ApplicationRecord
   validates_cpf :cpf
   validates_date :date_transaction, on_or_before: lambda { Date.current }
   validates :abs_value, :card, :date_transaction, presence: true
-  after_save :add_transaction_in_store
   after_destroy :remove_transaction_in_store
 
   def value
@@ -44,10 +43,6 @@ class Transaction < ApplicationRecord
         card: card,
         date_transaction: date_transaction
     )
-  end
-
-  def create(attributes = nil, &block)
-    super
   end
 
   def self.create(attributes = nil, &block)
